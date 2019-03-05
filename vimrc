@@ -122,9 +122,13 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Emulate Enter key
 nnoremap <S-d> o<Esc>
 
-nmap <silent> <leader>t : TestNearest<CR>
+" Tabs navigation
+nnoremap <silent> <M-l> :tabn<CR>
+nnoremap <silent> <M-h> :tabp<CR>
+
 nmap <silent> <leader>T : TestFile<CR>
 nmap <silent> <leader>a : TestSuite<CR>
 nmap <silent> <leader>l : TestLast<CR>
@@ -142,4 +146,29 @@ if has("gui_running")
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 16
         colorscheme iceberg
     endif
+endif
+
+" Map alt sequences for terminal via Esc
+" source: http://stackoverflow.com/a/10216459/15690
+" NOTE: <Esc>O is used for special keys (e.g.)
+" NOTE: drawback (with imap) - triggers timeout for Esc: use jk/kj, or press
+" it twice,
+" NOTE: Alt-<NR> mapped in tmux. TODO: change this?!
+if ! has('nvim') && ! has('gui_running')
+    fun! MySetupAltMapping(c)
+        exec "set <A-".a:c.">=\e".a:c
+    endfun
+
+    for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
+        while 1
+            call MySetupAltMapping(c)
+            if c >= n
+                break
+            endif
+            let c = nr2char(1+char2nr(c))
+        endw
+    endfor
+    for c in [',', '.', '-', '#', '+', '<']
+        call MySetupAltMapping(c)
+    endfor
 endif
