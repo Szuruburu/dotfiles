@@ -10,6 +10,16 @@ then
 	export PATH="${PATH}:$HOME/bin"
 fi
 
+# enable control-s and control-q
+vim() {
+    local ret STTYOPTS="$(stty -g)"
+    stty -ixon
+    command vim "$@"
+    ret=$?
+    stty "$STTYOPTS"
+    return "$ret"
+}
+
 # Set locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -118,6 +128,10 @@ alias cm='cmatrix -b -C cyan'
 
 # Github
 alias gitstore='git config --global credential.helper "store --file ~/.my-credentials"'
+
+# Vim
+# Suppress output from the 'fg' command
+alias fg='fg &> /dev/null'
 
 # PAC
 # install

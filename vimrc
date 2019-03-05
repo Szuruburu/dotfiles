@@ -2,6 +2,7 @@
 " Last Update March 5 2019
 
 set nocompatible
+set backspace=indent,eol,start
 
 syntax on
 
@@ -11,7 +12,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" plugins
+" Plugins
+" ------------------------------
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
 Plugin 'tpope/vim-surround'
@@ -22,15 +24,23 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-markdown'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
+" JavaScript JSX React
 Plugin 'pangloss/vim-javascript'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+Plugin 'mattn/emmet-vim'
+Plugin 'w0rp/ale'
+
 Plugin 'janko-m/vim-test'
 Plugin 'alfredodeza/coveragepy.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'yonchu/accelerated-smooth-scroll'
+
+" Color schemes
+Plugin 'morhetz/gruvbox'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'atelierbram/vim-colors_atelier-schemes'
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -42,9 +52,11 @@ set term=screen-256color
 colorscheme PaperColor
 
 set autoindent
+set shiftwidth=4
+set noexpandtab
+set tabstop=4
 set bg=dark
 set backspace=indent,eol,start
-set expandtab
 set ignorecase
 set incsearch
 set laststatus=2
@@ -60,20 +72,28 @@ set numberwidth=6
 set ruler
 set scrolloff=8
 set showmatch
-set shiftwidth=4
 set shortmess=I
 set showcmd
 set showmode
 set sidescroll=1
 set sidescrolloff=7
 set smartcase
-set softtabstop=4
 set undolevels=1000
 set nrformats-=octal
 set vb
 
 highlight ColorColumn ctermbg=black
 set colorcolumn=80
+
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+            \  'javascript.jsx' : {
+  \      'extends' : 'jsx',
+    \  },
+    \}
+
+
+let g:vim_jsx_pretty_colorful_config = 1
 
 let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
 
@@ -83,9 +103,6 @@ let g:ctrlp_map = '<c-p>'
 "Airline
 let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts = 1
-
-"NERDTree
-map <C-n> :NERDTreeToggle<CR>
 
 let test#python#runner = 'pytest'
 
@@ -117,17 +134,30 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+"NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Quick write session with F2
+map <F2> :mksession! ~/vim_session <cr>
+" And load session with F3
+map <F3> :source ~/vim_session <cr>
+
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 " Emulate Enter key
-nnoremap <S-d> o<Esc>
+nmap <S-d> o<Esc>
+
+" Save with Ctrl+S
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>i
 
 " Tabs navigation
-nnoremap <silent> <M-l> :tabn<CR>
-nnoremap <silent> <M-h> :tabp<CR>
+nmap <silent> <M-l> :tabn<CR>
+nmap <silent> <M-h> :tabp<CR>
+nmap <C-q> <C-w>q
 
 nmap <silent> <leader>T : TestFile<CR>
 nmap <silent> <leader>a : TestSuite<CR>
@@ -142,10 +172,10 @@ map gd :bd<cr>
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 if has("gui_running")
-    if has("gui_gtk2")
-        set guifont=Inconsolata\ for\ Powerline\ Medium\ 16
-        colorscheme iceberg
-    endif
+	if has("gui_gtk2")
+		set guifont=Inconsolata\ for\ Powerline\ Medium\ 16
+		colorscheme iceberg
+	endif
 endif
 
 " Map alt sequences for terminal via Esc
@@ -155,20 +185,20 @@ endif
 " it twice,
 " NOTE: Alt-<NR> mapped in tmux. TODO: change this?!
 if ! has('nvim') && ! has('gui_running')
-    fun! MySetupAltMapping(c)
-        exec "set <A-".a:c.">=\e".a:c
-    endfun
+	fun! MySetupAltMapping(c)
+		exec "set <A-".a:c.">=\e".a:c
+	endfun
 
-    for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
-        while 1
-            call MySetupAltMapping(c)
-            if c >= n
-                break
-            endif
-            let c = nr2char(1+char2nr(c))
-        endw
-    endfor
-    for c in [',', '.', '-', '#', '+', '<']
-        call MySetupAltMapping(c)
-    endfor
+	for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
+		while 1
+			call MySetupAltMapping(c)
+			if c >= n
+				break
+			endif
+			let c = nr2char(1+char2nr(c))
+		endw
+	endfor
+	for c in [',', '.', '-', '#', '+', '<']
+		call MySetupAltMapping(c)
+	endfor
 endif
