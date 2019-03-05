@@ -29,6 +29,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'janko-m/vim-test'
 Plugin 'alfredodeza/coveragepy.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'yonchu/accelerated-smooth-scroll'
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
