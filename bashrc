@@ -116,6 +116,9 @@ alias clipp='xclip -selection clipboard -o'
 alias sysupdate='yay --nodiffmenu -Syu'
 alias cm='cmatrix -b -C cyan'
 
+# Github
+alias gitstore='git config --global credential.helper "store --file ~/.my-credentials"'
+
 # PAC
 # install
 alias pac='yay --nodiffmenu -S'

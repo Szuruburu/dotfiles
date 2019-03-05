@@ -13,6 +13,7 @@ call vundle#begin()
 
 " plugins
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree-git-plugin'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
