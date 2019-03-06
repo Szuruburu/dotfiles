@@ -89,10 +89,10 @@ set colorcolumn=
 
 let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
-            \  'javascript.jsx' : {
-  \      'extends' : 'jsx',
-    \  },
-    \}
+		\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 
 let g:vim_jsx_pretty_colorful_config = 1
@@ -176,8 +176,8 @@ nmap <C-s> :w<CR>
 imap <C-s> <Esc><Esc>:w<CR>i
 
 " Tabs navigation
-nmap <silent> <M-u> :tabn<CR>
-nmap <silent> <M-i> :tabp<CR>
+nmap <silent> <M-i> :tabn<CR>
+nmap <silent> <M-y> :tabp<CR>
 nmap <M-q> <C-w>q
 nmap <M-S-q> :qa!<CR>
 
