@@ -116,6 +116,14 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=Lo
 
+" NERDtree settings
+" ==================
+" Autostart NERDtree on Vim startup
+autocmd VimEnter * NERDTree
+
+" Auto-close NERDtree on file opne
+let NERDTreeQuitOnOpen = 1
+
 "nerd-commenter settings
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -127,6 +135,9 @@ let g:NERDCompactSexyComs = 1
 " indentation
 let g:NERDDefaultAlign = 'left'
 
+" Show bookmarks on Vim startup
+let NERDTreeShowBookmarks=1
+
 " Allow commenting and inverting empty lines (useful when commenting a
 " region)
 let g:NERDCommentEmptyLines = 1
@@ -134,8 +145,16 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+" Automatically delete the buffer of the file you just deleted with NerdTree
+let NERDTreeAutoDeleteBuffer = 1
+
+" Make it prettier
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
 "NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
 
 " Quick write session with F2
 map <F2> :mksession! ~/vim_session <cr>
