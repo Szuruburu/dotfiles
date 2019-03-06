@@ -26,6 +26,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-markdown'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'jiangmiao/auto-pairs'
 " Plugin 'Valloric/YouCompleteMe'
 " JavaScript JSX React
 Plugin 'pangloss/vim-javascript'
@@ -176,7 +177,7 @@ imap <C-s> <Esc><Esc>:w<CR>i
 
 " Tabs navigation
 nmap <silent> <M-u> :tabn<CR>
-nmap <silent> <M-y> :tabp<CR>
+nmap <silent> <M-i> :tabp<CR>
 nmap <M-q> <C-w>q
 nmap <M-S-q> :qa!<CR>
 
