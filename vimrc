@@ -152,12 +152,12 @@ nmap <S-d> o<Esc>
 
 " Save with Ctrl+S
 nmap <C-s> :w<CR>
-imap <C-s> <Esc>:w<CR>i
+imap <C-s> <Esc><Esc>:w<CR>i
 
 " Tabs navigation
-nmap <silent> <M-l> :tabn<CR>
-nmap <silent> <M-h> :tabp<CR>
-nmap <C-q> <C-w>q
+nmap <silent> <M-u> :tabn<CR>
+nmap <silent> <M-y> :tabp<CR>
+nmap <M-q> <C-w>q
 
 nmap <silent> <leader>T : TestFile<CR>
 nmap <silent> <leader>a : TestSuite<CR>
@@ -167,6 +167,16 @@ nmap <silent> <leader>v : TestVisit<CR>
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
+
+nmap <M-h> b
+imap <M-h> <Esc><Esc>b
+nmap <M-l> w
+imap <M-l> <Esc><Esc>w
+
+nmap <M-j> j
+imap <M-j> <Esc><Esc>j
+nmap <M-k> k
+imap <M-k> <Esc><Esc>k
 
 " Remove all trailing whitespace by pressing F4
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
