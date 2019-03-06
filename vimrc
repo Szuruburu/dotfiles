@@ -1,8 +1,8 @@
 " Szuruburu vimrc
-" Last Update March 5 2019
+" Last Update March 6 2019
 
 set nocompatible
-set backspace=indent,eol,start
+set fillchars+=vert:│
 
 syntax on
 
@@ -68,7 +68,7 @@ set noswapfile
 set novb
 set nowrap
 set number
-set numberwidth=6
+set numberwidth=5
 set ruler
 set scrolloff=8
 set showmatch
@@ -82,8 +82,8 @@ set undolevels=1000
 set nrformats-=octal
 set vb
 
-highlight ColorColumn ctermbg=black
-set colorcolumn=80
+" highlight ColorColumn ctermbg=black
+set colorcolumn=
 
 let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
@@ -153,7 +153,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 "NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR><C-w>=
 
 
 " Quick write session with F2
@@ -177,6 +177,7 @@ imap <C-s> <Esc><Esc>:w<CR>i
 nmap <silent> <M-u> :tabn<CR>
 nmap <silent> <M-y> :tabp<CR>
 nmap <M-q> <C-w>q
+nmap <M-S-q> :qa!<CR>
 
 nmap <silent> <leader>T : TestFile<CR>
 nmap <silent> <leader>a : TestSuite<CR>
