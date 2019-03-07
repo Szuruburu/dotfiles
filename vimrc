@@ -72,7 +72,7 @@ set nowrap
 set number
 set numberwidth=5
 set ruler
-set scrolloff=8
+set scrolloff=20
 set showmatch
 set shortmess=I
 set showcmd
