@@ -177,8 +177,8 @@ nmap <C-s> :w<CR>
 imap <C-s> <Esc><Esc>:w<CR>i
 
 " Tabs navigation
-nmap <silent> <M-i> :tabn<CR>
-nmap <silent> <M-y> :tabp<CR>
+nmap <silent> <S-k> :tabn<CR>
+nmap <silent> <S-j> :tabp<CR>
 nmap <M-q> <C-w>q
 nmap <M-S-q> :qa!<CR>
 
@@ -194,7 +194,7 @@ map gd :bd<cr>
 nmap <M-h> b
 imap <M-h> <Esc><Esc>b
 nmap <M-l> w
-imap <M-l> <Esc><Esc>w
+imap <M-l> <Esc><Esc>lw
 
 nmap <M-j> j
 imap <M-j> <Esc><Esc>j
