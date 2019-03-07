@@ -86,6 +86,7 @@ set vb
 
 " highlight ColorColumn ctermbg=black
 set colorcolumn=
+highlight NonText ctermfg=bg guifg=bg
 
 let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
