@@ -278,8 +278,7 @@ endif
 " Map alt sequences for terminal via Esc
 " source: http://stackoverflow.com/a/10216459/15690
 " NOTE: <Esc>O is used for special keys (e.g.)
-" NOTE: drawback (with imap) - triggers timeout for Esc: use jk/kj, or press
-" it twice,
+" NOTE: drawback (with imap) - triggers timeout for Esc: use jk/kj, or press it twice
 " NOTE: Alt-<NR> mapped in tmux. TODO: change this?!
 if ! has('nvim') && ! has('gui_running')
 	fun! MySetupAltMapping(c)
