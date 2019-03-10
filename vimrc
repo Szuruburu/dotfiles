@@ -156,9 +156,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-"NERDTree
-map <C-n> :NERDTreeToggle<CR><C-w>=
-
 " Highlight tags
 let g:mta_filetypes = {
     \ 'html' : 1,
@@ -219,6 +216,9 @@ let g:ac_smooth_scroll_fb_sleep_time_msec = 6
 
 " To turn off only the acceleration function
 let g:ac_smooth_scroll_enable_accelerating =  0
+
+"NERDTree
+map <C-n> :NERDTreeToggle<CR><C-w>=
 
 " Quick write session with F2
 map <F2> :mksession! ~/vim_session <cr>
