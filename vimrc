@@ -33,6 +33,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
+Plugin 'Valloric/MatchTagAlways'
 Plugin 'alvan/vim-closetag'
 
 Plugin 'janko-m/vim-test'
@@ -98,7 +99,6 @@ let g:user_emmet_settings = {
 
 
 let g:vim_jsx_pretty_colorful_config = 1
-
 let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
 
 "CtrlP
@@ -158,6 +158,55 @@ let NERDTreeDirArrows = 1
 
 "NERDTree
 map <C-n> :NERDTreeToggle<CR><C-w>=
+
+" Highlight tags
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+	\ 'js' : 1,
+	\ 'jsx' : 1,
+	\}
+
+" More tags settings
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified
+" files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified
+" files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \}
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
 
 " Accelerated smooth scrolling
 " Sleep time (msec) at <Cd> / <Cu>: Scroll will be faster if you decrease it
