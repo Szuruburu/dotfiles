@@ -255,12 +255,15 @@ map gd :bd<cr>
 nmap <M-h> b
 imap <M-h> <Esc><Esc>b
 nmap <M-l> w
-imap <M-l> <Esc><Esc>lw
+imap <M-l> <Esc><Esc>w
 
 nmap <M-j> j
 imap <M-j> <Esc><Esc>j
 nmap <M-k> k
 imap <M-k> <Esc><Esc>k
+
+imap <Esc> <Esc><Esc>
+imap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Remove all trailing whitespace by pressing F4
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
