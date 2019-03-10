@@ -33,6 +33,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
+Plugin 'alvan/vim-closetag'
 
 Plugin 'janko-m/vim-test'
 Plugin 'alfredodeza/coveragepy.vim'
@@ -185,7 +186,7 @@ nmap <S-d> o<Esc>
 
 " Save with Ctrl+S
 nmap <C-s> :w<CR>
-imap <C-s> <Esc><Esc>:w<CR>i
+imap <C-s> <Esc><Esc>:w<CR>
 
 " Tabs navigation
 nmap <silent> <S-k> :tabn<CR>
