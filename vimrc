@@ -231,7 +231,7 @@ nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 
 " Emulate Enter key
-nmap <S-d> o<Esc>
+nmap <M-d> o<Esc>
 
 " Save with Ctrl+S
 nmap <C-s> :w<CR>
@@ -262,8 +262,11 @@ imap <M-j> <Esc><Esc>j
 nmap <M-k> k
 imap <M-k> <Esc><Esc>k
 
-imap <Esc> <Esc><Esc>
 imap <silent> <Esc> <C-O>:stopinsert<CR>
+
+" Fix delete button
+inoremap ^? <c-h>
+cnoremap ^? <c-h>
 
 " Remove all trailing whitespace by pressing F4
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
