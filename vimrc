@@ -52,7 +52,7 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 filetype plugin indent on
 
-set term=screen-256color
+"set term=screen-256color
 colorscheme PaperColor
 
 set autoindent
@@ -85,6 +85,10 @@ set smartcase
 set undolevels=1000
 set nrformats-=octal
 set vb
+
+" Disable screen flashing on error
+set visualbell
+set t_vb=
 
 " highlight ColorColumn ctermbg=black
 set colorcolumn=
@@ -262,7 +266,14 @@ imap <M-j> <Esc><Esc>j
 nmap <M-k> k
 imap <M-k> <Esc><Esc>k
 
-imap <silent> <Esc> <C-O>:stopinsert<CR>
+" Splits Resizing
+nmap <M-+> <C-w>+
+nmap <M--> <C-w>-
+nmap <M-<> <C-w><
+nmap <M-.> <C-w>>
+nmap <M-0> <C-w>=
+
+" imap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Fix delete button
 inoremap ^? <c-h>
