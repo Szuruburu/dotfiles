@@ -274,6 +274,9 @@ nmap <M-<> <C-w><
 nmap <M-.> <C-w>>
 nmap <M-0> <C-w>=
 
+nmap <M-1> :set wrap linebreak nolist<CR>
+nmap <M-2> :set nowrap<CR>
+
 " imap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Fix delete button
