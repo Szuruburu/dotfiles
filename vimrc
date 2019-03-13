@@ -35,6 +35,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'alvan/vim-closetag'
+Plugin 'othree/html5.vim'
 
 Plugin 'janko-m/vim-test'
 Plugin 'alfredodeza/coveragepy.vim'
