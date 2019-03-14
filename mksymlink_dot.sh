@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir=~/dotfiles
-files="bashrc vimrc"
+files="bashrc vimrc tern-config"
 
 cd $dir
 

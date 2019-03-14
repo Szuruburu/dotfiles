@@ -27,7 +27,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jiangmiao/auto-pairs'
-" Plugin 'Valloric/YouCompleteMe'
+
 " JavaScript JSX React
 Plugin 'pangloss/vim-javascript'
 Plugin 'MaxMEllon/vim-jsx-pretty'
@@ -41,6 +41,28 @@ Plugin 'janko-m/vim-test'
 Plugin 'alfredodeza/coveragepy.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'yonchu/accelerated-smooth-scroll'
+
+" AUTOCOMPLETE ENGINES
+Plugin 'ervandew/supertab'
+" This one needs compiling C++ libraries,
+" refer to the github page for installation guide
+Plugin 'Valloric/YouCompleteMe'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Color schemes
 Plugin 'morhetz/gruvbox'
@@ -86,6 +108,7 @@ set smartcase
 set undolevels=1000
 set nrformats-=octal
 set vb
+set splitbelow
 
 " Disable screen flashing on error
 set visualbell
@@ -95,7 +118,6 @@ set t_vb=
 set colorcolumn=
 highlight NonText ctermfg=bg guifg=bg
 
-let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
 		\  'javascript.jsx' : {
 \      'extends' : 'jsx',
@@ -107,7 +129,7 @@ let g:vim_jsx_pretty_colorful_config = 1
 let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
 
 "CtrlP
-let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_map = '<c-p>'
 
 "Airline
 let g:airline_theme='tomorrow'
@@ -223,17 +245,12 @@ let g:ac_smooth_scroll_fb_sleep_time_msec = 6
 let g:ac_smooth_scroll_enable_accelerating =  0
 
 "NERDTree
-map <C-n> :NERDTreeToggle<CR><C-w>=
+map <C-o> :NERDTreeToggle<CR>
 
 " Quick write session with F2
 map <F2> :mksession! ~/vim_session <cr>
 " And load session with F3
 map <F3> :source ~/vim_session <cr>
-
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
 
 " Emulate Enter key
 nmap <M-d> o<Esc>
@@ -257,16 +274,6 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
 
-nmap <M-h> b
-imap <M-h> <Esc><Esc>b
-nmap <M-l> w
-imap <M-l> <Esc><Esc>w
-
-nmap <M-j> j
-imap <M-j> <Esc><Esc>j
-nmap <M-k> k
-imap <M-k> <Esc><Esc>k
-
 " Splits Resizing
 nmap <M-+> <C-w>+
 nmap <M--> <C-w>-
@@ -277,7 +284,6 @@ nmap <M-0> <C-w>=
 nmap <M-1> :set wrap linebreak nolist<CR>
 nmap <M-2> :set nowrap<CR>
 
-" imap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Fix delete button
 inoremap ^? <c-h>
@@ -285,6 +291,8 @@ cnoremap ^? <c-h>
 
 " Remove all trailing whitespace by pressing F4
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+inoremap jj <Esc>l
 
 if has("gui_running")
 	if has("gui_gtk2")
@@ -316,3 +324,4 @@ if ! has('nvim') && ! has('gui_running')
 		call MySetupAltMapping(c)
 	endfor
 endif
+
