@@ -252,8 +252,10 @@ map <F2> :mksession! ~/vim_session <cr>
 " And load session with F3
 map <F3> :source ~/vim_session <cr>
 
-" Emulate Enter key
+" Insert new line below
 nmap <M-d> o<Esc>
+" Delete line without saving it in a register
+nmap <M-S-d> "_dd
 
 " Save with Ctrl+S
 nmap <C-s> :w<CR>
