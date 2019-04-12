@@ -31,7 +31,7 @@ Plugin 'jiangmiao/auto-pairs'
 " JavaScript JSX React
 Plugin 'pangloss/vim-javascript'
 Plugin 'MaxMEllon/vim-jsx-pretty'
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'alvan/vim-closetag'
@@ -51,18 +51,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Color schemes
 Plugin 'morhetz/gruvbox'
@@ -117,6 +105,19 @@ set t_vb=
 " highlight ColorColumn ctermbg=black
 set colorcolumn=
 highlight NonText ctermfg=bg guifg=bg
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 let g:user_emmet_settings = {
 		\  'javascript.jsx' : {
@@ -310,20 +311,20 @@ endif
 " NOTE: Alt-<NR> mapped in tmux. TODO: change this?!
 if ! has('nvim') && ! has('gui_running')
 	fun! MySetupAltMapping(c)
-		exec "set <A-".a:c.">=\e".a:c
-	endfun
+ 		exec "set <A-".a:c.">=\e".a:c
+ 	endfun
 
-	for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
-		while 1
-			call MySetupAltMapping(c)
-			if c >= n
-				break
-			endif
-			let c = nr2char(1+char2nr(c))
-		endw
-	endfor
-	for c in [',', '.', '-', '#', '+', '<']
-		call MySetupAltMapping(c)
+ 	for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
+ 		while 1
+ 			call MySetupAltMapping(c)
+ 			if c >= n
+ 				break
+ 			endif
+ 			let c = nr2char(1+char2nr(c))
+ 		endw
+ 	endfor
+ 	for c in [',', '.', '-', '#', '+', '<']
+ 		call MySetupAltMapping(c)
 	endfor
 endif
 
