@@ -10,6 +10,9 @@ then
 	export PATH="${PATH}:$HOME/bin"
 fi
 
+# Fix delete button in st terminal
+tput smkx
+
 # enable control-s and control-q
 vim() {
     local ret STTYOPTS="$(stty -g)"
@@ -103,13 +106,20 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 alias bright='xrandr --output HDMI-1 --brightness'
-alias ll='ls -lsh'
+alias ls='exa --group-directories-first'
+alias ll='exa -lgh'
 alias llfn='for n in *; do printf "%s\n" "$n"; done'
-alias la='ls -as'
-alias lla='ls -las'
-alias laa='ls -d .?*'
-alias llaa='ls -ld .?*'
-alias ls='ls --group-directories-first --color=always'
+alias la='exa -a'
+alias lla='exa -la'
+alias laa='exa -d .?*'
+alias llaa='exa -ld .?*'
+alias lg="exa -lagh --git"
+# alias llfn='for n in *; do printf "%s\n" "$n"; done'
+# alias la='ls -as'
+# alias lla='ls -las'
+# alias laa='ls -d .?*'
+# alias llaa='ls -ld .?*'
+# alias ls='ls --group-directories-first --color=always'
 alias dir='-as --group-directories-first --color=always'
 alias cls='clear'
 alias diff='diff --color=auto'
@@ -117,7 +127,7 @@ alias diff='diff --color=auto'
 
 alias cpbashrc='/home/szuruburu/Scripts/cpbashrc.sh'
 alias reboot!='sudo reboot -f'
-alias ping='prettyping'
+#alias ping='prettyping'
 alias notepad='kate &'
 alias cd..='cd ..'
 alias paint='kolourpaint %u &'
@@ -153,6 +163,9 @@ alias lsdev='inxi -Fx'
 alias lsgpu='inxi -G'
 alias lsmonitors='for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n "${con#*/card?-}: "; cat $p; done'
 
+# Utils
+alias clock='tty-clock -cs'
+
 #PS1='\[\e[36m\][$(date +%H:%M)]\[\e[0m\] \W\$ '
 
 #powerline-daemon -q
@@ -162,3 +175,4 @@ alias lsmonitors='for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n
 
 ##PS1='[\[\e[1;31m\]\u\[\e[0m\]@\[\e[36m\]\h\[\e[0m\] \W]\$ '
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+

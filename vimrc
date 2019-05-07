@@ -133,8 +133,11 @@ let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
 "let g:ctrlp_map = '<c-p>'
 
 "Airline
-let g:airline_theme='tomorrow'
+let g:airline_theme='minimalist'
+
+" air-line
 let g:airline_powerline_fonts = 1
+
 
 let test#python#runner = 'pytest'
 
@@ -151,7 +154,7 @@ set guioptions-=Lo
 " NERDtree settings
 " ==================
 " Autostart NERDtree on Vim startup
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 " Auto-close NERDtree on file opne
 let NERDTreeQuitOnOpen = 1
@@ -245,6 +248,12 @@ let g:ac_smooth_scroll_fb_sleep_time_msec = 6
 " To turn off only the acceleration function
 let g:ac_smooth_scroll_enable_accelerating =  0
 
+" Copy and paste to the system register
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+
 "NERDTree
 map <C-o> :NERDTreeToggle<CR>
 
@@ -289,8 +298,8 @@ nmap <M-2> :set nowrap<CR>
 
 
 " Fix delete button
-inoremap ^? <c-h>
-cnoremap ^? <c-h>
+"inoremap ^? <c-h>
+"cnoremap ^? <c-h>
 
 " Remove all trailing whitespace by pressing F4
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
