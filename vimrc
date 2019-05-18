@@ -268,8 +268,8 @@ nmap <M-d> o<Esc>
 nmap <M-S-d> "_dd
 
 " Save with Ctrl+S
-nmap <C-s> :w<CR>
-imap <C-s> <Esc><Esc>:w<CR>
+" nmap <C-s> :w<CR>
+" imap <C-s> <Esc><Esc>:w<CR>
 
 " Tabs navigation
 nmap <silent> <S-k> :tabn<CR>
@@ -293,7 +293,10 @@ nmap <M-<> <C-w><
 nmap <M-.> <C-w>>
 nmap <M-0> <C-w>=
 
+" Soft Wrap
 nmap <M-1> :set wrap linebreak nolist<CR>
+" Hard Wrap
+" nmap <M-1> :set wm=2<CR>
 nmap <M-2> :set nowrap<CR>
 
 

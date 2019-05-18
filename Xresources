@@ -6,7 +6,7 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #1d1f21
+XTerm*background:        #252226
 XTerm*foreground:        #d8d8d8
 XTerm*pointerColor:      #1ABB9B
 XTerm*faceName:          Fixed
@@ -14,7 +14,8 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #1d1f21
+*background:                      #252226
+!! *background:                      #1d1f21
 *foreground:                      #d8d8d8
 *fading:                          8
 *fadeColor:                       black
@@ -23,12 +24,13 @@ XTerm*selectToClipboard: true
 *pointerColorForeground:          #16A085
 
 !! black dark/light
-*color0:                          #222D31
+! Background
+*color0:                          #181818
 *color8:                          #585858
 
 !! red dark/light
 *color1:                          #ab4642
-*color9:                          #ab4642
+*color9:                          #ff0000
 
 !! green dark/light
 *color2:                          #7E807E
@@ -51,7 +53,9 @@ XTerm*selectToClipboard: true
 *color14:                         #1ABB9B
 
 !! white dark/light
+! Cursor and "$" in terminal
 *color7:                          #d8d8d8
+! Text caret and normal text in terminal
 *color15:                         #f8f8f8
 
 Xcursor.theme: xcursor-breeze
@@ -59,8 +63,9 @@ Xcursor.size:                     0
 
 ! URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 ! URxvt.font: 						xft:ConsolaMono:style=Book:size=12:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=72
-URxvt.font: 						xft:ConsolaMono:style=Book:size=13:dpi=72
+! URxvt.font: 						xft:ConsolaMono:style=Book:size=13:dpi=72
 ! URxvt.font: 						xft:Inconsolata:style=Regular:size=14:dpi=72
+! URxvt.font: 						xft:SourceCodePro-Regular:style=Regular:size=24:dpi=72
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -68,11 +73,12 @@ URxvt.font: 						xft:ConsolaMono:style=Book:size=13:dpi=72
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
+! URxvt.background:                 [100]#222D31
+URxvt.background:                 #252226
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
+URxvt*background:                 #252226
 URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
