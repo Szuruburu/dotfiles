@@ -310,10 +310,10 @@ noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 inoremap jj <Esc>l
 
 if has("gui_running")
-	if has("gui_gtk2")
-		set guifont=Inconsolata\ for\ Powerline\ Medium\ 16
-		colorscheme iceberg
-	endif
+	set guifont=Source\ Code\ Pro\ Regular\ 9
+	set guioptions-=T
+	set guioptions-=e
+	set guioptions-=L
 endif
 
 " Map alt sequences for terminal via Esc
