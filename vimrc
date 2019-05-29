@@ -268,8 +268,8 @@ nmap <M-d> o<Esc>
 nmap <M-S-d> "_dd
 
 " Save with Ctrl+S
-" nmap <C-s> :w<CR>
-" imap <C-s> <Esc><Esc>:w<CR>
+nmap <C-s> :w<CR>
+imap <C-s> <Esc><Esc>:w<CR>
 
 " Tabs navigation
 nmap <silent> <S-k> :tabn<CR>
@@ -294,10 +294,49 @@ nmap <M-.> <C-w>>
 nmap <M-0> <C-w>=
 
 " Soft Wrap
-nmap <M-1> :set wrap linebreak nolist<CR>
+" nmap <M-1> :set wrap linebreak nolist<CR>
 " Hard Wrap
 " nmap <M-1> :set wm=2<CR>
-nmap <M-2> :set nowrap<CR>
+" nmap <M-2> :set nowrap<CR>
+
+noremap <silent> <M-1> :call ToggleWrap()<CR>
+
+function ToggleWrap()
+	if &wrap
+		echo "Wrap OFF"
+		setlocal nowrap
+		set virtualedit=
+		silent! unmap <buffer> j
+		silent! unmap <buffer> k
+		silent! unmap <buffer> 0
+		silent! unmap <buffer> $
+		silent! nunmap <buffer> <Up>
+		silent! nunmap <buffer> <Down>
+		silent! nunmap <buffer> <Home>
+		silent! nunmap <buffer> <End>
+		silent! iunmap <buffer> <Up>
+		silent! iunmap <buffer> <Down>
+		silent! iunmap <buffer> <Home>
+		silent! iunmap <buffer> <End>
+	else
+		echo "Wrap ON"
+		setlocal wrap linebreak nolist
+		set virtualedit=
+		setlocal display+=lastline
+		map <buffer> <silent> j gj
+		map <buffer> <silent> k gk
+		map <buffer> <silent> 0 g0
+		map <buffer> <silent> $ g$
+		noremap  <buffer> <silent> <Up>   gk
+		noremap  <buffer> <silent> <Down> gj
+		noremap  <buffer> <silent> <Home> g<Home>
+		noremap  <buffer> <silent> <End>  g<End>
+		inoremap <buffer> <silent> <Up>   <C-o>gk
+		inoremap <buffer> <silent> <Down> <C-o>gj
+		inoremap <buffer> <silent> <Home> <C-o>g<Home>
+		inoremap <buffer> <silent> <End>  <C-o>g<End>
+	endif
+endfunction
 
 
 " Fix delete button
@@ -310,10 +349,10 @@ noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 inoremap jj <Esc>l
 
 if has("gui_running")
-	set guifont=Source\ Code\ Pro\ Regular\ 9
-	set guioptions-=T
-	set guioptions-=e
-	set guioptions-=L
+set guifont=Source\ Code\ Pro\ Regular\ 9
+set guioptions-=T
+set guioptions-=e
+set guioptions-=L
 endif
 
 " Map alt sequences for terminal via Esc
@@ -322,21 +361,21 @@ endif
 " NOTE: drawback (with imap) - triggers timeout for Esc: use jk/kj, or press it twice
 " NOTE: Alt-<NR> mapped in tmux. TODO: change this?!
 if ! has('nvim') && ! has('gui_running')
-	fun! MySetupAltMapping(c)
- 		exec "set <A-".a:c.">=\e".a:c
- 	endfun
+fun! MySetupAltMapping(c)
+exec "set <A-".a:c.">=\e".a:c
+endfun
 
- 	for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
- 		while 1
- 			call MySetupAltMapping(c)
- 			if c >= n
- 				break
- 			endif
- 			let c = nr2char(1+char2nr(c))
- 		endw
- 	endfor
- 	for c in [',', '.', '-', '#', '+', '<']
- 		call MySetupAltMapping(c)
-	endfor
+for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
+while 1
+call MySetupAltMapping(c)
+if c >= n
+			break
+		endif
+		let c = nr2char(1+char2nr(c))
+	endw
+endfor
+for c in [',', '.', '-', '#', '+', '<']
+	call MySetupAltMapping(c)
+endfor
 endif
 
