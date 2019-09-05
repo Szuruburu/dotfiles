@@ -24,7 +24,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-markdown'
-Plugin 'bronson/vim-trailing-whitespace'
+" Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jiangmiao/auto-pairs'
 
@@ -299,9 +299,9 @@ nmap <M-0> <C-w>=
 " nmap <M-1> :set wm=2<CR>
 " nmap <M-2> :set nowrap<CR>
 
-noremap <silent> <M-1> :call ToggleWrap()<CR>
+noremap <silent> <M-1> :call ToggleWrapper()<CR>
 
-function ToggleWrap()
+function ToggleWrapper()
 	if &wrap
 		echo "Wrap OFF"
 		setlocal nowrap
