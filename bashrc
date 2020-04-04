@@ -105,6 +105,8 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
+alias gtk2='gtk-chtheme &'
+alias gtk3='lxappearance &'
 alias please='sudo'
 alias bright='xrandr --output HDMI-1 --brightness'
 alias ls='exa --group-directories-first'
