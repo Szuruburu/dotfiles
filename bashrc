@@ -175,5 +175,5 @@ alias clock='tty-clock -cs'
 #. /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
 
 ##PS1='[\[\e[1;31m\]\u\[\e[0m\]@\[\e[36m\]\h\[\e[0m\] \W]\$ '
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h\[$(tput setaf 5)\]:\$PWD\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\$ \[$(tput sgr0)\]"
 

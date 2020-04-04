@@ -48,7 +48,7 @@ Plugin 'ervandew/supertab'
 " refer to the github page for installation guide
 Plugin 'Valloric/YouCompleteMe'
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
@@ -107,7 +107,7 @@ set colorcolumn=
 highlight NonText ctermfg=bg guifg=bg
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsEditSplit="vertical"
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -155,6 +155,8 @@ set guioptions-=Lo
 " ==================
 " Autostart NERDtree on Vim startup
 " autocmd VimEnter * NERDTree
+
+
 
 " Auto-close NERDtree on file opne
 let NERDTreeQuitOnOpen = 1
@@ -251,16 +253,16 @@ let g:ac_smooth_scroll_enable_accelerating =  0
 " Copy and paste to the system register
 vmap <C-c> "+yi
 vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
+vmap <C-v> c<ESC>"+gP
 imap <C-v> <ESC>"+pa
 
 "NERDTree
 map <C-o> :NERDTreeToggle<CR>
 
 " Quick write session with F2
-map <F2> :mksession! ~/vim_session <cr>
+map <F5> :mksession! ~/vim_session <cr>
 " And load session with F3
-map <F3> :source ~/vim_session <cr>
+map <F9> :source ~/vim_session <cr>
 
 " Insert new line below
 nmap <M-d> o<Esc>
