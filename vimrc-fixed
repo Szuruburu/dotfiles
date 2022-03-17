@@ -14,8 +14,8 @@ call vundle#begin()
 
 " Plugins
 " ------------------------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdtree-git-plugin'
+Plugin 'Xuyuanp/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
