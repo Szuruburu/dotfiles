@@ -12,6 +12,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
 " Plugins
 " ------------------------------
 Plugin 'Xuyuanp/nerdtree'
@@ -53,24 +56,22 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 
 " Color schemes
-Plugin 'morhetz/gruvbox'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'atelierbram/vim-colors_atelier-schemes'
+" Plugin 'morhetz/gruvbox'
+Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'atelierbram/vim-colors_atelier-schemes'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
 filetype plugin indent on
 
-"set term=screen-256color
 colorscheme PaperColor
 
 set autoindent
 set shiftwidth=4
 set noexpandtab
 set tabstop=4
-set bg=dark
+set background=dark
 set backspace=indent,eol,start
 set ignorecase
 set incsearch
@@ -104,7 +105,7 @@ set t_vb=
 
 " highlight ColorColumn ctermbg=black
 set colorcolumn=
-highlight NonText ctermfg=bg guifg=bg
+"highlight NonText ctermfg=bg guifg=bg
 
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
@@ -349,10 +350,13 @@ endfunction
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 if has("gui_running")
-set guifont=Source\ Code\ Pro\ Regular\ 9
-set guioptions-=T
-set guioptions-=e
-set guioptions-=L
+	set guifont=Source\ Code\ Pro\ Regular\ 9
+	set guioptions-=T
+	set guioptions-=e
+	set guioptions-=L
+else
+	set t_Co=256
+	set termguicolors
 endif
 
 
