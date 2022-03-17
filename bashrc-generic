@@ -85,7 +85,7 @@ alias cd..='cd ..'
 alias cclip='xclip -selection clipboard'
 alias clipp='xclip -selection clipboard -o'
 
-alias cm='cmatrix -b -C cyan'
+alias cm='cmatrix -b -C green'
 
 # Github
 alias gitstore='git config --global credential.helper "store --file ~/.my-credentials"'
