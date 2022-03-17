@@ -1,5 +1,5 @@
 " Szuruburu vimrc
-" Last Update March 6 2019
+" Last Update 17 March 2022
 
 set nocompatible
 set fillchars+=vert:│
@@ -11,7 +11,6 @@ syntax on
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -60,9 +59,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'NLKNguyen/papercolor-theme'
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'atelierbram/vim-colors_atelier-schemes'
-
-
 call vundle#end()
+
 filetype plugin indent on
 
 colorscheme PaperColor
