@@ -19,6 +19,7 @@ Plugin 'scrooloose/nerdtree-git-plugin'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'bling/vim-bufferline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
@@ -53,9 +54,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 
 " Color schemes
-Plugin 'morhetz/gruvbox'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'atelierbram/vim-colors_atelier-schemes'
+"Plugin 'sainnhe/sonokai'
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'atelierbram/vim-colors_atelier-schemes'
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -63,8 +64,8 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 filetype plugin indent on
 
-"set term=screen-256color
-colorscheme PaperColor
+" set term=screen-256color
+"colorscheme sonokai
 
 set autoindent
 set shiftwidth=4
@@ -102,10 +103,6 @@ set splitbelow
 set visualbell
 set t_vb=
 
-" highlight ColorColumn ctermbg=black
-set colorcolumn=
-highlight NonText ctermfg=bg guifg=bg
-
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
 
@@ -131,13 +128,30 @@ let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
 
 "CtrlP
 "let g:ctrlp_map = '<c-p>'
-
-"Airline
-let g:airline_theme='minimalist'
-
+"
 " air-line
 let g:airline_powerline_fonts = 1
 
+"Airline
+let g:airline_theme='badwolf'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 let test#python#runner = 'pytest'
 
@@ -357,27 +371,8 @@ set guioptions-=e
 set guioptions-=L
 endif
 
-" Map alt sequences for terminal via Esc
-" source: http://stackoverflow.com/a/10216459/15690
-" NOTE: <Esc>O is used for special keys (e.g.)
-" NOTE: drawback (with imap) - triggers timeout for Esc: use jk/kj, or press it twice
-" NOTE: Alt-<NR> mapped in tmux. TODO: change this?!
-if ! has('nvim') && ! has('gui_running')
-fun! MySetupAltMapping(c)
-exec "set <A-".a:c.">=\e".a:c
-endfun
-
-for [c, n] in items({'a':'z', 'A':'N', 'P':'Z', '0':'9'})
-while 1
-call MySetupAltMapping(c)
-if c >= n
-			break
-		endif
-		let c = nr2char(1+char2nr(c))
-	endw
-endfor
-for c in [',', '.', '-', '#', '+', '<']
-	call MySetupAltMapping(c)
-endfor
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
