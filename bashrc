@@ -47,7 +47,7 @@ function findfile {
 	 find ~ -name "$1" -type f
 }
 
-# A function that lets exit and cd into last for you were on ranger
+# Exit and cd into last dir you were on ranger; exit with Q
 function ranger {
     local IFS=$'\t\n'
     local tempfile="$(mktemp -t tmp.XXXXXX)"
