@@ -66,6 +66,7 @@ function ranger {
 
 export -f findfolder
 export -f findfile
+export -f ranger
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
