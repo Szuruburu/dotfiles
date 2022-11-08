@@ -108,7 +108,11 @@ alias clipp='xclip -selection clipboard -o'
 
 alias cm='cmatrix -b -C cyan'
 
-# Github
+# Networking
+# ip color
+alias ip='ip -c'
+
+# Git
 alias gitstore='git config --global credential.helper "store --file ~/.my-credentials"'
 
 # Vim
