@@ -85,6 +85,7 @@ alias lla='exa --group-directories-first -la'
 alias laa='exa --group-directories-first -d .?*'
 alias llaa='exa --group-directories-first -ld .?*'
 alias lg="exa -lagh --git"
+alias tree="tree -C"
 # alias llfn='for n in *; do printf "%s\n" "$n"; done'
 # alias la='ls -as'
 # alias lla='ls -las'
