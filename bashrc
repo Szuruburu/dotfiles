@@ -47,8 +47,26 @@ function findfile {
 	 find ~ -name "$1" -type f
 }
 
+# Exit and cd into last dir you were on ranger; exit with Q
+function ranger {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command
+        ranger
+        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+
+    ${ranger_cmd[@]} "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
+}
+
 export -f findfolder
 export -f findfile
+export -f ranger
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -90,7 +108,11 @@ alias clipp='xclip -selection clipboard -o'
 
 alias cm='cmatrix -b -C cyan'
 
-# Github
+# Networking
+# ip color
+alias ip='ip -c'
+
+# Git
 alias gitstore='git config --global credential.helper "store --file ~/.my-credentials"'
 
 # Vim
