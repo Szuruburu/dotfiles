@@ -94,7 +94,7 @@ alias tree="tree -C"
 # alias ls='ls --group-directories-first --color=always'
 alias dir='-as --group-directories-first --color=always'
 alias cls='clear'
-alias diff='diff --color=auto'
+alias diff='diff --color=auto -y'
 #alias grep='grep --color=auto'
 
 alias pac='yay -S'
@@ -127,6 +127,7 @@ alias lsmonitors='for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n
 
 # Utils
 alias clock='tty-clock -cs'
+alias wget='wget --show-progress'
 
 #PS1='\[\e[36m\][$(date +%H:%M)]\[\e[0m\] \W\$ '
 
