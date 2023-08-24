@@ -103,6 +103,7 @@ alias ip='ip -c'
 alias gitstore='git config --global credential.helper "store --file ~/.my-credentials"'
 
 # Vim
+alias vim='nvim'
 # Suppress output from the 'fg' command
 alias fg='fg &> /dev/null'
 
