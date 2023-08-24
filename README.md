@@ -1,5 +1,25 @@
 # DOTFILES
 
+##### Neovim 0.10+ on Ubuntu
+First install depdendencies:
+```bash
+apt install lua5.3
+```
+(determine which version works for neovim)
+
+```bash
+apt install gettext
+```
+And then build nvim from source:
+
+```bash
+git clone https://github.com/neovim/neovim
+```
+```bash
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+make install
+```
+
 ##### Vimrc
 
 Vundle:
