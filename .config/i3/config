@@ -59,6 +59,9 @@ exec --no-startup-id picom -b
 # Wallpaper
 exec --no-startup-id feh --bg-scale /home/szu/pix/walls/dark-grey.png
 
+# Notifications
+exec --no-startup-id dunst
+
 # Mouse deceleration
 exec --no-startup-id xinput set-prop 15 292 -0.5
 
