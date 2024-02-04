@@ -65,6 +65,9 @@ exec --no-startup-id dunst
 # Mouse deceleration
 exec --no-startup-id xinput set-prop 15 292 -0.5
 
+# Zabbix VPN
+exec --no-startup-id sudo openvpn --config /etc/openvpn/client/goc_vpn2.ovpn
+
 # TextSuggest
 exec --no-startup-id textsuggest-server
 bindsym Shift+Escape exec --no-startup-id /home/szu/dev/bash/textsuggest-restart.sh
@@ -159,6 +162,7 @@ for_window [class="Wfica"] move container to workspace 3
 for_window [class="Pavucontrol"] floating enable, move position 1260px 35px
 for_window [class="File-roller"] floating enable
 for_window [class="Gnome-tweaks"] floating enable
+for_window [class="mpv"] floating enable
 for_window [class="VirtualBox Machine"] floating enable, resize set 1840px 1035px
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBoxVM"] floating enable
