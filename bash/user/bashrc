@@ -104,7 +104,7 @@ alias reboot!='sudo reboot -f'
 alias shutdown='sudo shutdown -h now'
 
 # PACKAGE MANAGER
-alias pac='yay -S --nodiffmenu --answerclean None'
+alias pac='yay -S --diffmenu=false --answerclean None'
 alias upac='yay -Rns'
 alias sysupdate='yay -Syu'
 
@@ -140,8 +140,14 @@ alias peumvpn='echo "a7PlN3ZMp*J&t/5a" | sudo openconnect --csd-wrapper /usr/lib
 
 alias zabbixvpn='sudo openvpn --config /etc/openvpn/client/goc_vpn2.ovpn'
 
-#Virtualbox
+# Virtualbox
 alias windowsfhd='xdotool search --name "Windows 10" windowsize 1840 1035'
+
+# SNAP
+alias microk8s='snap run microk8s'
+
+# KUBERNETES
+alias k='kubectl'
 
 #PS1='\[\e[36m\][$(date +%H:%M)]\[\e[0m\] \W\$ '
 

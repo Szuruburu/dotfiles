@@ -65,9 +65,6 @@ exec --no-startup-id dunst
 # Mouse deceleration
 exec --no-startup-id xinput set-prop 15 292 -0.5
 
-# Zabbix VPN
-exec --no-startup-id sudo openvpn --config /etc/openvpn/client/goc_vpn2.ovpn
-
 # TextSuggest
 exec --no-startup-id textsuggest-server
 bindsym Shift+Escape exec --no-startup-id /home/szu/dev/bash/textsuggest-restart.sh
