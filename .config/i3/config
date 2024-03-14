@@ -304,36 +304,41 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym Shift+h resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym Shift+k resize grow height 5 px or 5 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym Shift+j resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-        bindsym Shift+l resize grow width 5 px or 5 ppt
+	bindsym h exec python /home/szu/.config/i3/i3pushresize.py left 50
+	bindsym Shift+h exec python /home/szu/.config/i3/i3pushresize.py left 25
+	bindsym j exec python /home/szu/.config/i3/i3pushresize.py  down 50
+	bindsym Shift+j exec python /home/szu/.config/i3/i3pushresize.py  down 25
+	bindsym k exec python /home/szu/.config/i3/i3pushresize.py   up 50
+	bindsym Shift+k exec python /home/szu/.config/i3/i3pushresize.py   up 25
+	bindsym l exec python /home/szu/.config/i3/i3pushresize.py   right 50
+	bindsym Shift+l exec python /home/szu/.config/i3/i3pushresize.py   right 25
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Shift+Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Shift+Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Shift+Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Shift+Right resize grow width 5 px or 5 ppt
+	# bindsym h resize shrink width 10 px or 10 ppt
+	# bindsym Shift+h resize shrink width 5 px or 5 ppt
+	# bindsym k resize grow height 10 px or 10 ppt
+	# bindsym Shift+k resize grow height 5 px or 5 ppt
+	# bindsym j resize shrink height 10 px or 10 ppt
+	# bindsym Shift+j resize shrink height 5 px or 5 ppt
+	# bindsym l resize grow width 10 px or 10 ppt
+	# bindsym Shift+l resize grow width 5 px or 5 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+	bindsym Left exec python /home/szu/.config/i3/i3pushresize.py left 50
+	bindsym Shift+Left exec python /home/szu/.config/i3/i3pushresize.py left 25
+	bindsym Down exec python /home/szu/.config/i3/i3pushresize.py  down 50
+	bindsym Shift+Down exec python /home/szu/.config/i3/i3pushresize.py  down 25
+	bindsym Up exec python /home/szu/.config/i3/i3pushresize.py   up 50
+	bindsym Shift+Up exec python /home/szu/.config/i3/i3pushresize.py   up 25
+	bindsym Right exec python /home/szu/.config/i3/i3pushresize.py   right 50
+	bindsym Shift+Right exec python /home/szu/.config/i3/i3pushresize.py   right 25
+
+# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
+
 
 bindsym $mod+r mode "resize"
 
