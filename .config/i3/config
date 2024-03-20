@@ -11,7 +11,10 @@
 
 set $mod Mod4
 set $primary_color #242424
+set $primary_color_border #5136BD
 set $inactive #151515
+set $selected_old #4c7899 
+set $selected #3f3f3f
 set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -73,13 +76,22 @@ bindsym Shift+Escape exec --no-startup-id /home/szu/dev/bash/textsuggest-restart
 
 # Compose borders
 default_border pixel 0
+
 gaps inner 8
 gaps outer 1
 smart_gaps on
 smart_borders on
 hide_edge_borders none
-client.focused $primary_color $primary_color $primary_color $primary_color
+
+# client.focused $primary_color_border $primary_color $primary_color $primary_color
+# client.focused_inactive $inactive $inactive $inactive $inactive
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 $primary_color $primary_color $selected $selected
 client.focused_inactive $inactive $inactive $inactive $inactive
+client.unfocused        $primary_color_border $primary_color $primary_color $primary_color
+client.urgent           #2f343a $primary_color $primary_color #900000   #900000
+client.placeholder      $primary_color_border $primary_color $primary_color $primary_color
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
